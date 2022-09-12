@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
+
 from pwn import *
 
 {bindings}
 
 context.binary = {bin_name}
+
 context.arch = "amd64"
 context.encoding = 'latin-1'
 
@@ -11,15 +13,14 @@ MENU_PROMPT = b"> "
 
 HOST=""
 PORT=1337
-
 class proc(object):
-    def __init__(self, **kwargs):# {{{
+    def __init__(self, **kwargs):
         if args.REMOTE:
-            self.__class__ = type('proc', (self.__class__, remote), {})
+            self.__class__ = type('proc', (self.__class__, remote), dict())
             remote.__init__(self, HOST, PORT, **kwargs)
         else:
-            self.__class__ = type('proc', (self.__class__, process), {})
-            process.__init__(self, [elf.path], **kwargs)
+            self.__class__ = type('proc', (self.__class__, process), dict())
+            process.__init__(self,{proc_args}, **kwargs)
             if args.DEBUG:
                 gdb.attach(self.p)
     def r(self, length: int):
@@ -46,7 +47,7 @@ class proc(object):
         gdb.attach(self)
     @staticmethod
     def embed():
-        import IPython; IPython.embed(colors="neutral")# }}}
+        import IPython; IPython.embed(colors="neutral")
 
 ########################################################
 # pwn below the line ^
