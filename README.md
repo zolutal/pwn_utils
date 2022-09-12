@@ -1,8 +1,8 @@
 # pwn_utils
 
-A repository of some scripts automate some actions I am constantly repeating for pwn challenges
+A repository of scripts which automate some actions I am constantly repeating for pwn challenges
 
-## scripts
+## Scripts
 
 * dwninit: A script to automatically extract the libc and ld from a docker image into the current directory, you can then use pwninit to relink the binary to the extracted libraries
 
