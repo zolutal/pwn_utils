@@ -10,7 +10,7 @@ A repository of scripts which automate some actions I am constantly repeating fo
 * pwinit-template: An custom pwninit template with boilerplate to wrap the pwntools process/remote modules into a single 'proc' class with shorthanded i/o function names, defaults to process rather than remote, mostly made to save myself from the suffering that is typing out 'sendlineafter' multiple times. I just stick the boilerplate into a vim fold to get it out of the way.
 
 ## dwninit Example
-```bash
+```
 ┌──(pwn)─(jmiller@ubuntu)-[~/ctf/demo]
 └─$ ls
 Dockerfile  chall  flag.txt
